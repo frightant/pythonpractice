@@ -2,7 +2,7 @@ import time
 import requests
 import execjs
 import ttkbootstrap as ttk
-
+import pyttsx3
 
 def sign(word):
     with open('temp.js',encoding='utf-8') as f:
@@ -32,5 +32,34 @@ def search(word):
     }
     html = requests.post(url=url,headers=headers,data=data).json()
     trans_result = html['trans_result']['data'][0]['dst']
-    print('翻译的结果是:'+trans_result)
-search("我是你爹")
+    # print('翻译的结果是:'+trans_result)
+    return trans_result
+
+
+def show():
+    engine = pyttsx3.init()
+    word = input_va.get()
+    translate = search(word)
+    text.delete('0.0','end')
+    text.insert('insert',translate)
+    engine.say(word+translate)
+    engine.runAndWait()
+
+root=ttk.Window(
+    title="小鱼翻译",
+    themename="litera",
+    size=(800,400),
+)
+root.place_window_center()
+root.resizable(False,False)
+frame = ttk.Frame()
+frame.pack(pady=10)
+input_va = ttk.StringVar()
+ttk.Label(frame,text='请输入要翻译的内容:',font=('微软雅黑',12)).pack(side=ttk.LEFT)
+ttk.Entry(frame,textvariable=input_va).pack(side=ttk.LEFT,padx=5)
+ttk.Button(frame,text='搜索',command=show).pack(side=ttk.LEFT)
+text_frame = ttk.Frame()
+text_frame.pack()
+text = ttk.Text(text_frame)
+text.pack()
+root.mainloop()
