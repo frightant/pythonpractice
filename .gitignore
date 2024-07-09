@@ -1,0 +1,5 @@
+.idea/inspectionProfiles .idea/misc.xml .idea/modules.xml .idea/py爬虫.iml .idea/vcs.xml .idea/workspace.xml
+build/*
+.idea/*
+*.spec
+.idea/*
