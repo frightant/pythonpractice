@@ -60,31 +60,57 @@
 
 
 
+# import tkinter as tk
+# from tkinter import ttk
+#
+# def search():
+#     # 这里添加你的搜索逻辑
+#     print("搜索：", entry.get())
+#
+# # 创建主窗口
+# root = tk.Tk()
+# root.title("搜索框")
+#
+# # 创建一个标签
+# label = ttk.Label(root, text="请输入搜索内容：")
+# label.pack(pady=10)
+#
+# # 创建一个文本输入框
+# entry = ttk.Entry(root, width=50)
+# entry.pack(padx=10, pady=10)
+#
+# # 创建搜索按钮，并绑定到search函数
+# search_button = ttk.Button(root, text="搜索", command=search)
+# search_button.pack(pady=10)
+#
+# # 绑定回车键到搜索按钮的功能
+# root.bind('<Return>', lambda event: search_button.invoke())
+#
+# # 启动事件循环
+# root.mainloop()
+
+
+
 import tkinter as tk
 from tkinter import ttk
 
-def search():
-    # 这里添加你的搜索逻辑
-    print("搜索：", entry.get())
+def show_feedback_window():
+    feedback_window = tk.Toplevel(root)
+    feedback_window.title("反馈建议")
+    feedback_window.geometry("400x200")  # 可以设置一个初始大小
 
-# 创建主窗口
-root = tk.Tk()
-root.title("搜索框")
+    # 创建一个文本框供用户输入反馈内容
+    feedback_text = tk.Text(feedback_window, height=10)
+    feedback_text.pack(pady=10)
 
-# 创建一个标签
-label = ttk.Label(root, text="请输入搜索内容：")
-label.pack(pady=10)
+    # 创建一个提交按钮，点击后关闭反馈窗口
+    submit_button = tk.Button(feedback_window, text="提交", command=feedback_window.destroy)
+    submit_button.pack(pady=10)
 
-# 创建一个文本输入框
-entry = ttk.Entry(root, width=50)
-entry.pack(padx=10, pady=10)
+# 你的其他代码保持不变
 
-# 创建搜索按钮，并绑定到search函数
-search_button = ttk.Button(root, text="搜索", command=search)
-search_button.pack(pady=10)
+# 在你的应用程序主循环中添加反馈按钮
+feedback_button = tk.Button(root, text="反馈建议", command=show_feedback_window)
+feedback_button.pack(side=tk.BOTTOM, pady=10)
 
-# 绑定回车键到搜索按钮的功能
-root.bind('<Return>', lambda event: search_button.invoke())
-
-# 启动事件循环
 root.mainloop()
