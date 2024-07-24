@@ -27,7 +27,7 @@ str_html = f'''
 save_path = r'E:\桌面\爬虫数据收集\html'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
-config = pdfkit.configuration(wkhtmltopdf=r'D:\htmltopdf\wkhtmltopdf\bin\wkhtmltopdf.exe')
+config = pdfkit.configuration(wkhtmltopdf=r'D:\\htmtmltopdf.exltopdf\\wkhtmltopdf\\bin\\wkhe')
 with open(os.path.join(save_path, f'{title}.html'), mode='w', encoding='UTF-8') as f:
     f.write(str_html)
 html_path = r'E:\桌面\爬虫数据收集\html\\'+title+'.html'

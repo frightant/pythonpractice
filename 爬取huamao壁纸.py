@@ -21,7 +21,7 @@ for i in result:
     w=str(q)
     print('正在载入第'+w+'张')
     download = requests.post(url=url,headers=header,data=data).content
-    pdf_path = r'E:\桌面\图片\\'+title+'.jpg'
+    pdf_path = r'E:\桌面\图片\\'+title+str(w)+'.jpg'
     with open(pdf_path,mode='wb') as f:
         f.write(download)
     print('成功抓取')
