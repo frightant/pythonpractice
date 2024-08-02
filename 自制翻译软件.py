@@ -75,9 +75,7 @@ def show():
     translate = search(word)
     text.delete('0.0','end')
     text.insert('insert',translate)
-    engine = pyttsx3.init()
-    engine.say(translate)
-    engine.runAndWait()
+
 
 
 
